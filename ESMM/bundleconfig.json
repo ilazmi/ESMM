@@ -9,12 +9,22 @@
     "outputFileName": "wwwroot/js/esmm.min.js",
     "inputFiles": [
       "wwwroot/js/esmm.js"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   },
   {
     "outputFileName": "wwwroot/js/pages/customer.min.js",
     "inputFiles": [
       "wwwroot/js/pages/customer.js"
-    ]
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   }
 ]

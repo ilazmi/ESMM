@@ -40,7 +40,7 @@ namespace ESMM.Models
         public string GSM { get; set; }
         [Display(Name = "Telefon No")]
         public string Phone { get; set; }
-        [Display(Name = "FAks No")]
+        [Display(Name = "Faks No")]
         public string Fax { get; set; }
         [Display(Name = "E-Posta")]
         public string EMail { get; set; }

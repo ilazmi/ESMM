@@ -16,4 +16,5 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     };
+    dataTableSelectedRowClass = "bg-info";
 });

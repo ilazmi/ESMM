@@ -16,9 +16,9 @@
             <div class="modal-footer">
                 @if (Model.Buttons == ModalButton.OkCancel || Model.Buttons == ModalButton.YesNo || Model.Buttons == ModalButton.YesNoCancel || Model.Buttons == ModalButton.SaveCancel || Model.Buttons == ModalButton.Custom)
                 {
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@Model.ButtonSecondTitle</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">@Model.ButtonSecondTitle</button>
                 }
-            <button type="button" class="btn btn-primary">@Model.ButtonFirstTitle</button>
+                <button type="button" class="btn btn-primary" id="submitBtn">@Model.ButtonFirstTitle</button>
             </div>
         </div>
     </div>
