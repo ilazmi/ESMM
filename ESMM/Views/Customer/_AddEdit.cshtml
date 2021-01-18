@@ -1,0 +1,100 @@
+﻿@model ESMM.Models.Customer
+@{
+    string TaxTitle = Model.Type == 1 ? "T.C. Kimlik No" : "Vergi No";
+}
+
+<form asp-action="AddEditCustomer" role="form">
+    <div class="form row">
+        <legend class="col-form-label col-md-4 pt-0 font-weight-bold">Müşteri Tipi</legend>
+        <div class="col-md-8">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="type" id="type1" value="1" checked="@(Model.Type == 1)">
+                <label class="form-check-label" for="type1">Gerçek Müşteri</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="type" id="type2" value="2" checked="@(Model.Type == 2)">
+                <label class="form-check-label" for="type2">Tüzel Müşteri</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" value="@Model.Name" disabled="@(Model.Type == 2)">
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Surname"></label>
+            <input asp-for="Surname" class="form-control" value="@Model.Surname" disabled="@(Model.Type == 2)">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label asp-for="CompanyTitle"></label>
+            <input asp-for="CompanyTitle" class="form-control" value="@Model.CompanyTitle" disabled="@(Model.Type == 1)">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="TaxNumber">@TaxTitle</label>
+            <input asp-for="TaxNumber" class="form-control" value="@Model.TaxNumber">
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="TaxOffice"></label>
+            <input asp-for="TaxOffice" class="form-control" value="@Model.TaxOffice">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="GSM"></label>
+            <input asp-for="GSM" class="form-control" value="@Model.GSM">
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" value="@Model.Phone">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Fax"></label>
+            <input asp-for="Fax" class="form-control" value="@Model.Fax">
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="EMail"></label>
+            <input asp-for="EMail" class="form-control" value="@Model.EMail">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label asp-for="Address"></label>
+            <textarea asp-for="Address" class="form-control" rows="3">@Model.Address</textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="District.Name"></label>
+            <select asp-for="District.Name" class="form-control form-control-lg chosen-item" required="required" data-no_results_text="Sonuç bulunamadı: ">
+                <option disabled selected> -- Bir değer seçin --</option>
+                @foreach (var district in Model.Districts)
+                {
+                    <option value="@district.Id" selected="@(district.Id == Model.DistrictId)">@district.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="City.Name"></label>
+            <select asp-for="City.Name" class="form-control form-control-lg chosen-item" required="required" data-no_results_text="Sonuç bulunamadı: ">
+                <option disabled selected> -- Bir değer seçin --</option>
+                @foreach (var city in Model.Cities)
+                {
+                    <option value="@city.Id" selected="@(city.Id == Model.CityId)">@city.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label asp-for="Comment"></label>
+            <textarea asp-for="Comment" class="form-control" rows="2">@Model.Comment</textarea>
+        </div>
+    </div>
+</form>
