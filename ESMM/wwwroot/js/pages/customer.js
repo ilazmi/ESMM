@@ -4,7 +4,7 @@
             "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Turkish.json"
         },
         "initComplete": function (settings, json) {
-            $(this).show();
+            $(this).removeClass('d-none');
         }
     });
     $('#addEditCustomer').on('show.bs.modal', function (event) {
